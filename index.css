@@ -2,11 +2,11 @@
 ::before,
 ::after{
     box-sizing: border-box;
+    font-weight: bold;
 }
 
 body{
     margin: 0;
-    background-color: #F8F6F0;
 }
 
 header{
@@ -79,4 +79,102 @@ nav button:hover{
     cursor: pointer;
     border-bottom: 5px solid #214D40;
 }
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.services{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 30rem;
+    background-color: white;
+}
+
+.services label{
+    font-size: 3.5rem;
+    color: #214D40;
+}
+
+.cards-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 20rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 15rem;
+    background-color: #F8F6F0;
+    border-radius: 1rem;
+}
+
+.timeOpen{
+    display: grid;
+    grid-template-columns: 55%  45%;
+    width: 100%;
+    height: 30rem;
+    background-color: #F8F6F0;
+}
+
+.openCard{
+    display: flex;
+    flex-direction: column;
+    grid: 1;
+    padding: 5rem;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+    background-color: #DCE9DF;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    color: #214D40;
+}
+
+.openCardHeader{
+    font-size: 3rem;
+}
+
+.openCardTime{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.cardWall{
+    width: 3px;
+    height: 100%;
+    background-color: #214D40;
+}
+
+.counter, .date{
+    font-size: 2rem;
+}
+
+.openCardButton{
+    display: flex;
+    width: 15rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: #4f8153;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bolder;
+
+}
+
 

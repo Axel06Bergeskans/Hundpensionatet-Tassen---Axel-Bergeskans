@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
     <title>Tassen</title>
 </head>
 
@@ -42,14 +43,14 @@
         </section>
         <section class="timeOpen">
             <div class="openCard">
-                <label class="openCardHeader">Öppet just nu</label>
+                <label class="openCardHeader" id="openHeading">Just nu: Laddar...</label>
                 <div class="openCardTime">
                     <label class="counter" id="counter">LocalTime</label>
                     <div class="cardWall"></div>
                     <label class="date" id="date">LocalDate</label>
                 </div>
                 <div class="openCardButton">
-                <div></div> <label>Öppet just nu</label>
+                <div></div> <label id="isOpenButton">Öppet just nu</label>
                 </div>
             </div>
         </section>

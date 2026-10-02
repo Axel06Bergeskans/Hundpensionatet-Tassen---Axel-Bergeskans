@@ -1,15 +1,21 @@
 *,
 ::before,
-::after{
+::after {
     box-sizing: border-box;
     font-weight: bold;
 }
 
-body{
+* {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
     margin: 0;
 }
 
-header{
+header {
     display: grid;
     height: 100vh;
     width: 100%;
@@ -18,17 +24,17 @@ header{
 }
 
 .navBox {
-  display: flex;
-  justify-content: space-between; /* sprider ut logga+text till vänster och nav till höger */
-  align-items: center;
-  width: 100%;
-  height: 5.5rem;
-  background-color: white;
-  padding-left: 5rem;
-  padding-right: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5.5rem;
+    background-color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 
-.leftGroup{
+.leftGroup {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,27 +42,27 @@ header{
     height: 100%;
 }
 
-.navBox img{
+.navBox img {
     width: 4rem;
     height: 4rem;
 }
 
 .headerTextArea {
-  display: flex;
-  margin-left: 1rem;
-  flex-direction: column;
+    display: flex;
+    margin-left: 1rem;
+    flex-direction: column;
 }
 
 .headerTextArea * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.headerTextArea > *:empty {
-  display: none;
+.headerTextArea>*:empty {
+    display: none;
 }
 
-nav{
+nav {
     display: flex;
     margin-left: auto;
     justify-content: space-around;
@@ -65,7 +71,7 @@ nav{
     height: 100%;
 }
 
-nav button{
+nav button {
     width: 7rem;
     height: 50%;
     background-color: transparent;
@@ -75,12 +81,12 @@ nav button{
     color: #214D40;
 }
 
-nav button:hover{
+nav button:hover {
     cursor: pointer;
     border-bottom: 5px solid #214D40;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -89,7 +95,7 @@ main{
     padding-right: 5rem;
 }
 
-.services{
+.services {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,19 +104,19 @@ main{
     background-color: white;
 }
 
-.services label{
+.services label {
     font-size: 3.5rem;
     color: #214D40;
 }
 
-.cards-box{
+.cards-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 20rem;
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -119,15 +125,15 @@ main{
     border-radius: 1rem;
 }
 
-.timeOpen{
+.timeOpen {
     display: grid;
-    grid-template-columns: 55%  45%;
+    grid-template-columns: 55% 45%;
     width: 100%;
     height: 30rem;
     background-color: #F8F6F0;
 }
 
-.openCard{
+.openCard {
     display: flex;
     flex-direction: column;
     grid: 1;
@@ -141,27 +147,28 @@ main{
     color: #214D40;
 }
 
-.openCardHeader{
+.openCardHeader {
     font-size: 3rem;
 }
 
-.openCardTime{
+.openCardTime {
     display: flex;
     flex-direction: row;
     gap: 3rem;
 }
 
-.cardWall{
+.cardWall {
     width: 3px;
     height: 100%;
     background-color: #214D40;
 }
 
-.counter, .date{
+.counter,
+.date {
     font-size: 2rem;
 }
 
-.openCardButton{
+.openCardButton {
     display: flex;
     width: 15rem;
     height: 3rem;
@@ -176,5 +183,3 @@ main{
     font-weight: bolder;
 
 }
-
-

@@ -1,0 +1,82 @@
+*,
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #F8F6F0;
+}
+
+header{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    background-image: url(Images/runningDog.jpg);
+    background-size: cover;
+}
+
+.navBox {
+  display: flex;
+  justify-content: space-between; /* sprider ut logga+text till vänster och nav till höger */
+  align-items: center;
+  width: 100%;
+  height: 5.5rem;
+  background-color: white;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.leftGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30rem;
+    height: 100%;
+}
+
+.navBox img{
+    width: 4rem;
+    height: 4rem;
+}
+
+.headerTextArea {
+  display: flex;
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+.headerTextArea * {
+  margin: 0;
+  padding: 0;
+}
+
+.headerTextArea > *:empty {
+  display: none;
+}
+
+nav{
+    display: flex;
+    margin-left: auto;
+    justify-content: space-around;
+    align-items: center;
+    width: 50rem;
+    height: 100%;
+}
+
+nav button{
+    width: 7rem;
+    height: 50%;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #214D40;
+}
+
+nav button:hover{
+    cursor: pointer;
+    border-bottom: 5px solid #214D40;
+}
+

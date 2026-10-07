@@ -182,3 +182,37 @@ main {
     font-size: 1.2rem;
     font-weight: bolder;
 }
+
+.openWeekList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.openWeekList ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+}
+
+.openWeekList li{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    height: 5rem;
+}
+
+.openWeekListActive{
+    background-color: #4f8153;
+}
+
+.isOpen{
+    background-color: #4f8153;
+}
+.isClosed{
+    background-color: #8b0000;
+}

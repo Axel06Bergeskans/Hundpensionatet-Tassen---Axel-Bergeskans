@@ -25,9 +25,15 @@
                 </div>
             </div>
             <nav>
-                <button>Hem</button>
-                <button>Tjänster</button>
-                <button>Öppettider</button>
+                <a href="index.html">
+                    <button>Hem</button>
+                </a>
+                <a href="#services">
+                    <button>Tjänster</button>
+                </a>
+                <a href="#openSection">
+                    <button>Öppettider</button>
+                </a>
                 <button>Boka</button>
                 <button>Om oss</button>
                 <button>Kontakt</button>
@@ -36,7 +42,7 @@
     </header>
 
     <main>
-        <section class="services">
+        <section class="services" id="services">
             <label>Våra Tjänster</label>
             <div class="cards-box">
                 <div class="card"></div>
@@ -46,13 +52,13 @@
                 <div class="card"></div>
             </div>
         </section>
-        <section class="timeOpen">
+        <section class="sections" id="openSection">
             <div class="openCard">
                 <label class="openCardHeader" id="openHeading">Just nu: Laddar...</label>
                 <div class="openCardTime">
-                    <label class="counter" id="counter">LocalTime</label>
+                    <label class="counter" id="counter">LocalTime...</label>
                     <div class="cardWall"></div>
-                    <label class="date" id="date">LocalDate</label>
+                    <label class="date" id="date">LocalDate...</label>
                 </div>
                 <div class="openCardButton" id="openCardButton">
                     <div></div> <label id="isOpenButton">Öppet just nu</label>
@@ -68,6 +74,10 @@
                     <li id="friday">Fredag</li>
                 </ul>
             </div>
+        </section>
+
+        <section class="sections">
+            <div id="weather"></div>
         </section>
     </main>
 </body>

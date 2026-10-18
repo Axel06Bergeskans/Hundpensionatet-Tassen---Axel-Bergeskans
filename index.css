@@ -84,7 +84,7 @@ nav button {
 
 nav button:hover {
     cursor: pointer;
-    border-bottom: 5px solid #214D40;
+    text-decoration: 5px underline;
 }
 
 main {
@@ -125,6 +125,11 @@ main {
     width: 15rem;
     background-color: #F8F6F0;
     border-radius: 1rem;
+    transition: .2s;
+}
+
+.cards-box :hover{
+    transform: scale(1.03);
 }
 
 .sections {
@@ -204,6 +209,7 @@ main {
 .openWeekList li{
     display: flex;
     align-items: center;
+    padding-left: 1rem;
     font-size: 25px;
     height: 5rem;
 }
@@ -234,3 +240,137 @@ main {
     align-items: center;
     font-size: 20rem;
 }
+
+#weatherText{
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.imageSection{
+    display: flex;
+    height: 20rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.imageSection :nth-child(1){
+    background-image: url(Images/02588862afa53c90e5d3ca66fd286cc9.jpg);
+    background-size: cover;
+}
+
+.imageSection :nth-child(2){
+    background-image: url(Images/ladda\ ned.png);
+    background-size: cover;
+    background-position: 0, 0, 0;
+}
+
+.imageSection :nth-child(3){
+    background-image: url(Images/sunDog.png);
+    background-size: cover;
+}
+
+.imageSection :nth-child(4){
+    background-image: url(Images/4469379efa38ce747ddf82523a6c6d67.jpg);
+    background-size: cover;
+}
+
+.imageSection :nth-child(5){
+    background-image: url(Images/dogWater.jpg);
+    background-size: cover;
+    background-position: -80px;
+}
+
+.bokadeTider{
+    display: flex;
+    padding: 1rem;
+    height: 100vh;
+    width: 100%;
+    background-color: pink;
+}
+
+.boka{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.bokade{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+    height: 100%;
+}
+
+.bokaCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 6rem;
+    border-radius: 1rem;
+    background-color: #4f8153;
+    cursor: pointer;
+}
+
+.bokadCard{
+    display: flex;
+    background-color: #F8F6F0;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 80%;
+    height: 10rem;
+}
+.isBokad{
+    background-color: red;
+}
+
+.omOss{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.omOssContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F6F0;
+}
+
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.omOssContainer :nth-child(1){
+    background-image: url(Images/1787521372958.jpg);
+    border-radius: 50%;
+    height: 25rem;
+    width: 25rem;
+}
+
+.omOssContainer :nth-child(2){
+    background-image: url(Images/02588862afa53c90e5d3ca66fd286cc9.jpg);
+    border-radius: 50%;
+    height: 25rem;
+    width: 25rem;
+}
+
+
+

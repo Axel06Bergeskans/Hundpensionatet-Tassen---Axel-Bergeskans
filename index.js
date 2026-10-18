@@ -10,32 +10,48 @@ const tuesday = document.getElementById("tuesday")
 const wednesday = document.getElementById("wednesday")
 const thursday = document.getElementById("thursday")
 const friday = document.getElementById("friday")
+const saturday = document.getElementById("saturday")
+const sunday = document.getElementById("sunday")
 const cards = document.querySelectorAll(".bokaCard");
 const bokade = document.querySelector(".bokade");
 const weatherText = document.getElementById("weatherText");
+const dogName = document.getElementById("dogName");
 
 const allDays = [
     monday,
     tuesday,
     wednesday,
     thursday,
-    friday
+    friday,
+    saturday,
+    sunday
 ]
 
 
 function isOpen() {
     const now = new Date();
     const hour = now.getHours();
+    const dayToday = now.getDay();
 
-    if (hour >= 7 && hour < 18) {
+    if (dayToday >= 1 && dayToday <= 5 && hour >= 7 && hour < 18) {
         openHeading.innerHTML = "Just nu: Öppet";
         isOpenButton.innerHTML = "Öppet just nu";
         openCardButton.classList.add("isOpen");
+        openCardButton.classList.remove("isClosed");
+    }
 
-    } else {
-        openHeading.innerHTML = "Just nu: Stängt"
-        isOpenButton.innerHTML = "Stängt just nu"
-        openCardButton.classList.add("isClosed")
+    else if (dayToday === 6 && hour >= 9 && hour < 14) {
+        openHeading.innerHTML = "Just nu: Öppet";
+        isOpenButton.innerHTML = "Öppet just nu";
+        openCardButton.classList.add("isOpen");
+        openCardButton.classList.remove("isClosed");
+    }
+
+    else {
+        openHeading.innerHTML = "Just nu: Stängt";
+        isOpenButton.innerHTML = "Stängt just nu";
+        openCardButton.classList.add("isClosed");
+        openCardButton.classList.remove("isOpen");
     }
 }
 
@@ -89,11 +105,12 @@ function dayList(element) {
     const date = new Date()
     const dayToday = date.getDay()
 
-    if (dayToday >= 1 && dayToday <= 5) {
-        allDays[dayToday - 1].classList.add("openWeekListActive");
+    if (dayToday === 0) {
+        return allDays[6].classList.add("openWeekListActive");
     }
-}
 
+    return allDays[dayToday - 1].classList.add("openWeekListActive");
+}
 
 dayList(allDays);
 
@@ -130,35 +147,38 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=59.38&longitude=17.03&hou
         if (clouds < 20 && rain < 0.5) {
             weather.innerHTML = "☀️";
             weather.style.backgroundColor = "#4f8153";
-            weatherText.innerHTML = "Just nu: Soligt"
+            weatherText.innerHTML = "Just nu: Soligt";
 
         } else if (clouds < 50 && rain < 0.5) {
             weather.innerHTML = "🌤️";
             weather.style.backgroundColor = "#2a2e66";
-            weatherText.innerHTML = "Just nu: Växlande molnighet"
+            weatherText.innerHTML = "Just nu: Växlande molnighet";
 
         } else if (clouds < 80 && rain < 0.5) {
             weather.innerHTML = "⛅";
             weather.style.backgroundColor = "#292C51";
-            weatherText.innerHTML = "Just nu: Mestadels molnigt"
+            weatherText.innerHTML = "Just nu: Mestadels molnigt";
 
         } else if (clouds <= 100 && rain < 0.5) {
             weather.innerHTML = "☁️";
             weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Molnigt"
+            weatherText.innerHTML = "Just nu: Molnigt";
 
         } else if (rain < 1) {
             weather.innerHTML = "☔";
             weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Duggregn"
+            weatherText.innerHTML = "Just nu: Duggregn";
+
         } else {
             weather.innerHTML = "🌧️";
             weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Mycket regn"
+            weatherText.innerHTML = "Just nu: Mycket regn";
         }
-    }
-    )
-
+    })
+    .catch(error => {
+        console.error("Fel vid hämtning av väder:", error);
+        weatherText.innerHTML = "Kunde inte ladda vädret.";
+    });
 
 cards.forEach((card, index) => {
     const date = new Date();
@@ -174,35 +194,97 @@ cards.forEach((card, index) => {
 });
 
 
-const bokadeTider = []; 
+
+let bokadeTider = JSON.parse(localStorage.getItem("bokadeTider")) || [];
+
+function visaBokningar() {
+    bokade.innerHTML = "";
+
+    cards.forEach(card => {
+        card.classList.remove("isBokad");
+    });
+
+    bokadeTider.forEach((bokning, index) => {
+        const bookingCard = document.createElement("div");
+        bookingCard.classList.add("bokadCard");
+
+        bookingCard.textContent =
+            "Hund: " + bokning.hundensNamn +
+            " | Bokad tid: " + bokning.datum;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Ta bort tid";
+
+        deleteButton.addEventListener("click", () => {
+            bokadeTider.splice(index, 1);
+
+            localStorage.setItem(
+                "bokadeTider",
+                JSON.stringify(bokadeTider)
+            );
+
+            visaBokningar();
+        });
+
+        bookingCard.appendChild(deleteButton);
+        bokade.appendChild(bookingCard);
+
+        cards.forEach(card => {
+            if (card.textContent === bokning.datum) {
+                card.classList.add("isBokad");
+            }
+        });
+    });
+}
+
+visaBokningar();
 
 cards.forEach(card => {
     card.addEventListener("click", () => {
+        const selectedDate = card.textContent;
+        const hundensNamn = dogName.value.trim();
 
-        const selectedDate = card.textContent; // <-- måste ligga först
-        const antalBokade = bokade.children.length;
+        if (hundensNamn === "") {
+            alert("Skriv hundens namn först!");
+            return;
+        }
 
-        // Max 5 bokningar
-        if (antalBokade >= 5) {
+        if (bokadeTider.length >= 5) {
             alert("Det går inte att boka fler tider, max 5 tider");
             return;
         }
 
-        // Redan bokad?
-        if (bokadeTider.includes(selectedDate)) {
+        if (bokadeTider.some(bokning => bokning.datum === selectedDate)) {
             alert("Du har redan bokat denna tid");
             return;
         }
 
-        // Skapa bokningskort
-        const bookingCard = document.createElement("div");
-        bookingCard.classList.add("bokadCard");
-        bookingCard.textContent = "Bokad tid: " + selectedDate;
+        const nyBokning = {
+            hundensNamn: hundensNamn,
+            datum: selectedDate
+        };
 
-        bokade.appendChild(bookingCard);
-        card.classList.add("isBokad");
+        bokadeTider.push(nyBokning);
 
-        // Lägg till i listan
-        bokadeTider.push(selectedDate);
+        localStorage.setItem(
+            "bokadeTider",
+            JSON.stringify(bokadeTider)
+        );
+
+        visaBokningar();
     });
 });
+
+
+class Hundpensionat {
+    constructor(namn) {
+        this.namn = namn;
+    }
+
+    presentera() {
+        return "Välkommen till " + this.namn + "!";
+    }
+}
+
+const tassen = new Hundpensionat("Tassen");
+console.log(tassen.presentera());

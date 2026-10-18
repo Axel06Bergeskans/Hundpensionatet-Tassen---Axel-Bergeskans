@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +34,15 @@
                 <a href="#openSection">
                     <button>Öppettider</button>
                 </a>
-                <button>Boka</button>
-                <button>Om oss</button>
-                <button>Kontakt</button>
+                <a href="">
+                    <button>Boka</button>
+                </a>
+                <a href="#omOss">
+                    <button>Om oss</button>
+                </a>
+                <a href="#kontakt">
+                    <button>Kontakt</button>
+                </a>
             </nav>
         </div>
     </header>
@@ -46,12 +52,35 @@
             <label>Våra Tjänster</label>
             <div class="cards-box">
                 <div class="card">
-                    <img src="Images/02588862afa53c90e5d3ca66fd286cc9.jpg" alt="InfluencerDog">
+                    <h2>Hunddagis</h2>
+                    <p>En trygg dag med lek, vila och promenader medan du jobbar.</p>
+                    <p>Pris: 300 kr/dag</p>
                 </div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+
+                <div class="card">
+                    <h2>Hundpensionat</h2>
+                    <p>Övernattning med omsorg, mat och promenader i en trygg miljö.</p>
+                    <p>Pris: 450 kr/natt</p>
+                </div>
+
+                <div class="card">
+                    <h2>Hundpromenad</h2>
+                    <p>En extra lång promenad för hundar som behöver röra på sig.</p>
+                    <p>Pris: 150 kr</p>
+                </div>
+
+                <div class="card">
+                    <h2>Valppassning</h2>
+                    <p>Extra omsorg, lek och pauser anpassade för valpens behov.</p>
+                    <p>Pris: 250 kr/dag</p>
+                </div>
+
+                <div class="card">
+                    <h2>Pälsvård</h2>
+                    <p>Borstning och enklare pälsvård för en ren och fin hund.</p>
+                    <p>Pris: 200 kr</p>
+                </div>
+
             </div>
         </section>
         <section class="sections" id="openSection">
@@ -69,11 +98,13 @@
 
             <div class="openWeekList">
                 <ul>
-                    <li id="monday">Måndag</li>
-                    <li id="tuesday">Tisdag</li>
-                    <li id="wednesday">Onsdag</li>
-                    <li id="thursday">Torsdag</li>
-                    <li id="friday">Fredag</li>
+                    <li id="monday">Måndag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="tuesday">Tisdag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="wednesday"> Onsdag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="thursday">Torsdag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="friday">Fredag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="saturday">Lördag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 07 - 18</li>
+                    <li id="sunday">Söndag &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Öppet Kl: 09 - 14</li>
                 </ul>
             </div>
         </section>
@@ -154,17 +185,25 @@
                     Laddar...
                 </div>
             </div>
+            <div class="bokningsForm">
+                <input type="text" id="dogName" placeholder="Skriv hundens namn">
+            </div>
             <div class="bokade">
             </div>
         </section>
 
-        <section class="omOss">
+        <section class="omOss" id="omOss">
             <div class="omOssContainer">
-                <div class="imgContainer"></div>
                 <div class="imgContainer"></div>
             </div>
         </section>
     </main>
+
+    <footer id="kontakt">
+        <p>Tassen@gmail.com</p>
+        <p>Telefon: xxx-xxx-xx-xx</p>
+        <p>Adress: Banangatan</p>
+    </footer>
 </body>
 
 </html>

@@ -445,39 +445,85 @@ footer p{
 }
 
 
-/* Mobilanpassning */
+
+
+
+/* =====================================
+   MOBILANPASSNING – TASSEN
+   ===================================== */
+
 @media screen and (max-width: 768px) {
 
-    body {
-        width: 100%;
-        overflow-x: hidden;
+    /* Grundinställningar */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
 
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: clip;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    button,
+    input {
+        max-width: 100%;
+        font: inherit;
+    }
+
+    /* Header och bakgrundsbild */
     header {
-        height: 70vh;
-        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        min-height: 60vh;
+        background-size: cover;
         background-position: center;
     }
 
+    /* Navigering */
     .navBox {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
         height: auto;
         padding: 1rem;
-        gap: 0.5rem;
     }
 
     .leftGroup {
-        width: 100%;
+        display: flex;
         justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        height: auto;
     }
 
     .navBox img {
         width: 3rem;
         height: 3rem;
+        object-fit: contain;
+    }
+
+    .headerTextArea {
+        margin: 0;
+        min-width: 0;
     }
 
     .headerTextArea h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .headerTextArea h3 {
@@ -485,84 +531,112 @@ footer p{
     }
 
     nav {
-        width: 100%;
-        height: auto;
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        width: 100%;
+        height: auto;
         margin: 0;
-        gap: 0.2rem;
     }
 
     nav a {
-        width: 30%;
+        display: flex;
+        justify-content: center;
+        width: auto;
+        max-width: 100%;
+        flex: 1 1 30%;
         text-align: center;
     }
 
     nav button {
         width: 100%;
-        height: 2.5rem;
+        min-height: 2.5rem;
+        height: auto;
+        padding: 0.4rem;
         font-size: 1rem;
+        overflow-wrap: anywhere;
     }
 
+    /* Huvudinnehåll */
     main {
-        padding: 1rem;
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
+        width: 100%;
+        padding: 1rem;
     }
 
+    /* Tjänster och kort */
     .services {
+        width: 100%;
         height: auto;
         gap: 1rem;
     }
 
     .services label {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        overflow-wrap: anywhere;
     }
 
     .cards-box {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
+        gap: 0.75rem;
+        width: 100%;
         height: auto;
     }
 
     .cards-box .card {
         width: 100%;
-        height: 12rem;
         min-width: 0;
-        overflow: hidden;
+        height: auto;
+        min-height: 9rem;
+        padding: 0.75rem;
+        overflow-wrap: anywhere;
     }
 
     .cards-box .card img {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
     }
 
+    /* Öppettider och veckodagar */
     .sections {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
+        width: 100%;
         height: auto;
         min-width: 0;
     }
 
     .openCard {
-        min-height: auto;
-        padding: 1.5rem;
-        gap: 1.5rem;
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .openCardHeader {
         font-size: 2rem;
+        overflow-wrap: anywhere;
     }
 
     .openCardTime {
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        gap: 0.75rem;
     }
 
     .counter,
     .date {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        overflow-wrap: anywhere;
     }
 
     .cardWall {
@@ -570,183 +644,346 @@ footer p{
     }
 
     .openCardButton {
-        max-width: 100%;
+        width: 100%;
+        max-width: 18rem;
+        min-height: 3rem;
+        height: auto;
+        padding: 0.75rem;
+        font-size: 1rem;
     }
 
     .openWeekList {
+        display: block;
         width: 100%;
+        min-width: 0;
         padding: 0.5rem;
     }
 
     .openWeekList ul {
-        padding: 0;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
         height: auto;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 
     .openWeekList li {
-        font-size: 1.1rem;
-        min-height: 3rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        min-height: 3.5rem;
         height: auto;
-        padding: 0.7rem;
-        flex-wrap: wrap;
+        padding: 0.75rem;
+        font-size: 1rem;
+        overflow-wrap: anywhere;
     }
 
-    #weather {
-        min-height: 12rem;
-        height: 12rem;
-        font-size: 8rem;
-        border-radius: 1rem;
-        gap: 0;
-    }
-
-    #weatherText {
-        font-size: 2rem;
+    /* Sök efter ort */
+    .searchOrt {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        height: auto;
         padding: 1rem;
+        font-size: 1.4rem;
         text-align: center;
     }
 
+    .searchOrt input {
+        width: 100%;
+        height: 3rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .searchOrt button {
+        width: 100%;
+        min-height: 3rem;
+        height: auto;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* Väder */
+    #weather {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 10rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: clamp(3rem, 15vw, 6rem);
+    }
+
+    #weatherText {
+        max-width: 100%;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    /* Bildsektion */
     .imageSection {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.75rem;
+        width: 100%;
         height: auto;
     }
 
     .imageSection .card {
         width: 100%;
-        height: 10rem;
         min-width: 0;
-        background-position: center;
+        height: 10rem;
+        padding: 0.5rem;
         background-size: cover;
+        background-position: center;
+        overflow: hidden;
     }
 
+    /* Bokningssektionen */
     .bokadeTider {
+        display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        width: 100%;
         height: auto;
         min-height: 0;
-        gap: 1rem;
         padding: 0.75rem;
     }
 
     .boka {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-content: start;
         gap: 0.75rem;
         width: 100%;
+        min-width: 0;
         height: auto;
     }
 
     .bokaCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         min-width: 0;
         min-height: 5rem;
         height: auto;
         padding: 0.5rem;
+        border-radius: 1rem;
         text-align: center;
+        font-size: 0.9rem;
         overflow-wrap: anywhere;
     }
 
     .bokningsForm {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
         width: 100%;
         padding: 0.5rem;
     }
 
     .bokningsForm input {
         width: 100%;
-        max-width: 100%;
+        min-width: 0;
+        min-height: 2.75rem;
+        padding: 0.75rem;
+        font-size: 1rem;
     }
 
     .bokade {
-        width: 100%;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         gap: 0.75rem;
+        width: 100%;
+        min-width: 0;
+        height: auto;
     }
 
     .bokadCard {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 0.75rem;
         width: 100%;
-        min-height: 7rem;
+        min-width: 0;
+        min-height: 6rem;
         height: auto;
-        padding: 0.75rem;
-        gap: 0.5rem;
-        font-size: 1.2rem;
+        padding: 1rem;
+        font-size: 1rem;
         overflow-wrap: anywhere;
     }
 
     .bokadCard button {
-        max-width: 100%;
+        width: 100%;
+        min-height: 2.75rem;
         padding: 0.5rem;
     }
 
+    /* Om oss */
     .omOss {
+        width: 100%;
         height: auto;
-        min-height: 20rem;
+        min-height: 0;
     }
 
     .omOssContainer {
-        min-height: 20rem;
-        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 1.5rem 1rem;
+    }
+
+    .imgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        min-width: 0;
     }
 
     .omOssContainer .imgContainer {
-        width: 15rem;
-        height: 15rem;
+        width: min(75vw, 18rem);
+        height: min(75vw, 18rem);
         max-width: 100%;
+        flex-shrink: 0;
+        border-radius: 50%;
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
 
+    /* Välkomsttext */
+    .welcome {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        padding: 1rem;
+        font-size: 1.4rem;
+        overflow-wrap: anywhere;
+    }
+
+    /* Sidfot */
     footer {
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 0.5rem;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
         height: auto;
-        min-height: 10rem;
+        min-height: 0;
+        margin-top: 1rem;
         padding: 1.5rem 1rem;
         text-align: center;
     }
 
     footer p {
-        font-size: 1.3rem;
-        margin: 0.4rem;
+        max-width: 100%;
+        margin: 0;
+        font-size: 1.1rem;
         overflow-wrap: anywhere;
     }
 }
 
-/* Extra små telefoner */
+
+/* Extra små mobiltelefoner */
 @media screen and (max-width: 380px) {
+
+    main {
+        padding: 0.65rem;
+    }
+
+    .navBox {
+        padding: 0.75rem;
+    }
+
+    .headerTextArea h1 {
+        font-size: 1.35rem;
+    }
+
+    nav a {
+        flex-basis: 45%;
+    }
 
     .cards-box {
         grid-template-columns: 1fr;
     }
 
-    .boka {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .services label {
+        font-size: 1.7rem;
     }
 
     .openCard {
-        padding: 1rem;
+        padding: 0.75rem;
     }
 
-    .openCardTime {
-        gap: 0.5rem;
+    .openCardHeader {
+        font-size: 1.6rem;
     }
 
     .counter,
     .date {
-        font-size: 1.1rem;
-    }
-
-    .openWeekList li {
         font-size: 1rem;
     }
 
-    #weatherText {
-        font-size: 1.5rem;
+    .openWeekList li {
+        font-size: 0.9rem;
     }
 
-    nav a {
-        width: 45%;
+    .imageSection {
+        grid-template-columns: 1fr;
+    }
+
+    .imageSection .card {
+        height: 12rem;
+    }
+
+    .boka {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .bokaCard {
+        font-size: 0.8rem;
+    }
+
+    .bokadCard {
+        font-size: 0.9rem;
+    }
+
+    #weatherText {
+        font-size: 1.2rem;
+    }
+
+    .welcome {
+        font-size: 1.2rem;
     }
 }
-

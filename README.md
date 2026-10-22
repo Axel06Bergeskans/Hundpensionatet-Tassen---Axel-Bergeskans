@@ -45,3 +45,5 @@ Det enda jag använde AI till var när jag ville få min sökfunktion till mitt 
 
 Jag använde även AI när jag skulle fixa till min klass. Jag lyckades själv skapa själva bokningsfunktionen och göra att bokningscards dök upp när man bokade.
 Jag hade däremot svårigheter när det kom till att man skulle använda klass i samband med new. Där använde jag AI för att generera kod och förstå bättre hur det fungerar.
+
+Generering av @media och uppdaterad @media anpassad för mobiler är genererad med AI för att snabba på processen

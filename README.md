@@ -42,3 +42,6 @@ Ett problem under utvecklingen var att layouten ibland flyttades när jag lade t
 
 ## AI
 Det enda jag använde AI till var när jag ville få min sökfunktion till mitt väderAPI att fungera. Själv lyckades jag att få fasta kordinater att fungera, men det blev en utmaning för mig att få till själva sökfunktionen att ändra kordinater.
+
+Jag använde även AI när jag skulle fixa till min klass. Jag lyckades själv skapa själva bokningsfunktionen och göra att bokningscards dök upp när man bokade.
+Jag hade däremot svårigheter när det kom till att man skulle använda klass i samband med new. Där använde jag AI för att generera kod och förstå bättre hur det fungerar.

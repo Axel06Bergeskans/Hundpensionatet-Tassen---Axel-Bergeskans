@@ -140,48 +140,49 @@ console.log(result + " " + months[month]);
 
 function hamtaVader(latitude, longitude) {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=rain,cloud_cover&timezone=Europe%2FStockholm`)
-    .then(response => response.json())
-    .then(data => {
-        const time = date.getHours();
-        console.log(data);
-        const clouds = data.hourly.cloud_cover[time];
-        const rain = data.hourly.rain[time];
+        .then(response => response.json())
+        .then(data => {
+            const time = date.getHours();
+            console.log(data);
+            const clouds = data.hourly.cloud_cover[time];
+            const rain = data.hourly.rain[time];
 
-        if (clouds < 20 && rain < 0.5) {
-            weather.innerHTML = "☀️";
-            weather.style.backgroundColor = "#4f8153";
-            weatherText.innerHTML = "Just nu: Soligt";
+            if (clouds < 20 && rain < 0.5) {
+                weather.innerHTML = "☀️";
+                weather.style.backgroundColor = "#4f8153";
+                weatherText.innerHTML = "Just nu: Soligt";
 
-        } else if (clouds < 50 && rain < 0.5) {
-            weather.innerHTML = "🌤️";
-            weather.style.backgroundColor = "#2a2e66";
-            weatherText.innerHTML = "Just nu: Växlande molnighet";
+            } else if (clouds < 50 && rain < 0.5) {
+                weather.innerHTML = "🌤️";
+                weather.style.backgroundColor = "#2a2e66";
+                weatherText.innerHTML = "Just nu: Växlande molnighet";
 
-        } else if (clouds < 80 && rain < 0.5) {
-            weather.innerHTML = "⛅";
-            weather.style.backgroundColor = "#292C51";
-            weatherText.innerHTML = "Just nu: Mestadels molnigt";
+            } else if (clouds < 80 && rain < 0.5) {
+                weather.innerHTML = "⛅";
+                weather.style.backgroundColor = "#292C51";
+                weatherText.innerHTML = "Just nu: Mestadels molnigt";
 
-        } else if (clouds <= 100 && rain < 0.5) {
-            weather.innerHTML = "☁️";
-            weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Molnigt";
+            } else if (clouds <= 100 && rain < 0.5) {
+                weather.innerHTML = "☁️";
+                weather.style.backgroundColor = "#262630";
+                weatherText.innerHTML = "Just nu: Molnigt";
 
-        } else if (rain < 1) {
-            weather.innerHTML = "☔";
-            weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Duggregn";
+            } else if (rain < 1) {
+                weather.innerHTML = "☔";
+                weather.style.backgroundColor = "#262630";
+                weatherText.innerHTML = "Just nu: Duggregn";
 
-        } else {
-            weather.innerHTML = "🌧️";
-            weather.style.backgroundColor = "#262630";
-            weatherText.innerHTML = "Just nu: Mycket regn";
-        }
-    })
-    .catch(error => {
-        console.error("Fel vid hämtning av väder:", error);
-        weatherText.innerHTML = "Kunde inte ladda vädret.";
-    })};
+            } else {
+                weather.innerHTML = "🌧️";
+                weather.style.backgroundColor = "#262630";
+                weatherText.innerHTML = "Just nu: Mycket regn";
+            }
+        })
+        .catch(error => {
+            console.error("Fel vid hämtning av väder:", error);
+            weatherText.innerHTML = "Kunde inte ladda vädret.";
+        })
+};
 
 cards.forEach((card, index) => {
     const date = new Date();
@@ -212,8 +213,7 @@ function visaBokningar() {
         bookingCard.classList.add("bokadCard");
 
         bookingCard.textContent =
-            "Hund: " + bokning.hundensNamn +
-            " | Bokad tid: " + bokning.datum;
+            "Hund: " + bokning.hundensNamn + " | Bokad tid: " + bokning.datum;
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Ta bort tid";
@@ -227,6 +227,10 @@ function visaBokningar() {
             );
 
             visaBokningar();
+
+            if (bokadeTider.length === 0) {
+                welcome.innerHTML = tassen.presentera();
+            }
         });
 
         bookingCard.appendChild(deleteButton);
@@ -278,7 +282,6 @@ cards.forEach(card => {
     });
 });
 
-
 class Hundpensionat {
     constructor(namn) {
         this.namn = namn;
@@ -288,9 +291,22 @@ class Hundpensionat {
         return "Välkommen till " + this.namn + "!";
     }
 }
-
 const tassen = new Hundpensionat("Tassen");
-console.log(tassen.presentera());
+const welcome = document.getElementById("welcome");
+
+function visaValkommen() {
+    const hundensNamn = dogName.value.trim();
+
+    welcome.innerHTML = tassen.presentera();
+
+    if (hundensNamn !== "") {
+        welcome.innerHTML += "<br>Välkommen till oss med " + hundensNamn + "!";
+    }
+}
+
+dogName.addEventListener("input", visaValkommen);
+
+visaValkommen();
 
 async function searchOrt() {
     const ort = document.getElementById("textField").value.trim();

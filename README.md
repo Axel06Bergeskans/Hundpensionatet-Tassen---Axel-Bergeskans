@@ -39,3 +39,6 @@ Ett problem under utvecklingen var att layouten ibland flyttades när jag lade t
 ## Projektinformation
 **Namn:** Tassen – Hundpensionat & Hunddagis  
 **Språk:** HTML, CSS och JavaScript
+
+## AI
+Det enda jag använde AI till var när jag ville få min sökfunktion till mitt väderAPI att fungera. Själv lyckades jag att få fasta kordinater att fungera, men det blev en utmaning för mig att få till själva sökfunktionen att ändra kordinater.

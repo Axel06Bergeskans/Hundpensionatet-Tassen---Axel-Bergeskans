@@ -136,8 +136,11 @@ const month = date.getMonth()
 const result = date.getDate();
 console.log(result + " " + months[month]);
 
-fetch("https://api.open-meteo.com/v1/forecast?latitude=59.38&longitude=17.03&hourly=rain,cloud_cover&timezone=Europe%2FStockholm")
-    .then(result => result.json())
+
+
+function hamtaVader(latitude, longitude) {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=rain,cloud_cover&timezone=Europe%2FStockholm`)
+    .then(response => response.json())
     .then(data => {
         const time = date.getHours();
         console.log(data);
@@ -178,7 +181,7 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=59.38&longitude=17.03&hou
     .catch(error => {
         console.error("Fel vid hämtning av väder:", error);
         weatherText.innerHTML = "Kunde inte ladda vädret.";
-    });
+    })};
 
 cards.forEach((card, index) => {
     const date = new Date();
@@ -288,3 +291,32 @@ class Hundpensionat {
 
 const tassen = new Hundpensionat("Tassen");
 console.log(tassen.presentera());
+
+async function searchOrt() {
+    const ort = document.getElementById("textField").value.trim();
+    document.getElementById("textField").value = "";
+
+    if (!ort) {
+        weatherText.innerHTML = "Skriv in en ort först!";
+        return;
+    }
+
+    const response = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(ort)}&count=1&language=sv`
+    );
+
+    const data = await response.json();
+
+    if (!data.results || data.results.length === 0) {
+        weatherText.innerHTML = "Orten hittades inte.";
+        return;
+    }
+
+    const latitude = data.results[0].latitude;
+    const longitude = data.results[0].longitude;
+
+    hamtaVader(latitude, longitude);
+}
+
+document.getElementById("searchButton")
+    .addEventListener("click", searchOrt);

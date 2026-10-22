@@ -229,6 +229,33 @@ main {
     background-color: #8b0000;
 }
 
+.searchOrt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    font-size: 3rem;
+    width: 100%;
+    height: 7rem;
+    background-color: #F8F6F0;
+}
+
+.searchOrt input{
+    width: 30%;
+    height: 50%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.searchOrt button{
+    width: 10rem;
+    height: 50%;
+    font-size: 2rem;
+    background-color: #4f8153;
+    border: none;
+    border-radius: .5rem;
+}
+
 #weather{
     display: flex;
     flex-direction: column;
